@@ -40,6 +40,46 @@ nav ul#user_info {
   display: none;
 }
 
+nav ul#user_info li i {
+  color: #e57c23;
+  cursor: pointer;
+  font-size: 30px;
+  margin: 10px 15px;
+}
+
+nav ul#user_info li .badge {
+  width: 20px;
+  height: 20px;
+  background-color: #1b9c85;
+  color: #ffe194;
+  position: absolute;
+  display: none;
+  border-radius: 50%;
+  text-align: center;
+  top: 10px;
+  right: 285px;
+  font-size: 15px;
+}
+
+nav ul#user_info li .carts-products {
+  display: none;
+  background-color: #ddd;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  transform: translate(-42%, 0);
+  top: 46px;
+}
+
+nav ul#user_info li .carts-products a {
+  color: #fff;
+  display: block;
+  background-color: #ffe194;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+}
+
 nav li a {
   display: block;
   color: #fff;
@@ -85,4 +125,47 @@ nav li a {
 
 .section-form form input[type="submit"]:hover {
   opacity: 0.8;
+}
+
+/* Products */
+.products {
+  width: 60%;
+  margin: 10px 0;
+}
+
+.product-item {
+  display: flex;
+  width: 100%;
+}
+
+.product-item-img {
+  width: 25%;
+  margin-right: 10px;
+}
+
+.product-item-actions {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item .add-to-cart {
+  display: block;
+  margin-left: auto;
+  color: #e57c23;
+  background-color: #f8f1f1;
+  border: 0;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.product-item .heart {
+  cursor: pointer;
+  display: block;
+  width: 20px;
+  margin-left: auto;
 }
