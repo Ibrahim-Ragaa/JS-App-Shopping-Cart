@@ -1,57 +1,11 @@
-let userInfo = document.querySelector("#user_info");
-let userDom = document.querySelector("#user");
-let links = document.querySelector("#links");
-let logoutButton = document.querySelector("#logout");
-
-let username = localStorage.getItem("username");
-
-if (username) {
-  links.remove();
-  userInfo.style.display = "flex";
-  userDom.innerHTML = username;
-}
-
-logoutButton.addEventListener("click", logout);
-
-function logout() {
-  localStorage.clear();
-  setTimeout(() => {
-    window.location = "register.html";
-  }, 1500);
-}
-
 // Define products
 
 let productDom = document.querySelector(".products");
 shoppingCartIcon = document.querySelector(".fa-cart-shopping");
 shoppingCartIcon.addEventListener("click", opencartMenu);
-
-let products = [
-  {
-    id: 1,
-    title: "Glasses Item",
-    size: "large",
-    imageurl: "images/glasses.webp",
-  },
-  {
-    id: 2,
-    title: "Headphone Item",
-    size: "large",
-    imageurl: "images/headphone.jpg",
-  },
-  {
-    id: 3,
-    title: "Labtop Item",
-    size: "large",
-    imageurl: "images/labtop.jpg",
-  },
-  {
-    id: 4,
-    title: "Watch Item",
-    size: "Large",
-    imageurl: "images/watch.jpg",
-  },
-];
+let cartProductDom = document.querySelector(".carts-products div");
+let cartProductcnt = document.querySelector(".badge");
+let cartProductmenue = document.querySelector(".carts-products");
 
 function drawProductsUI() {
   let ProductsUI = products.map((item) => {
@@ -80,19 +34,34 @@ function drawProductsUI() {
 
 drawProductsUI();
 
-let cartProductDom = document.querySelector(".carts-products div");
-let cartProductcnt = document.querySelector(".badge");
+//check if there is item in localstorage
+let addedItem = localStorage.getItem("productsincarts")
+  ? JSON.parse(localStorage.getItem("productsincarts"))
+  : [];
 
-function addToCart(id) {
-  let chosenItem = products.find((item) => id === item.id);
-  cartProductDom.innerHTML += `<p>${chosenItem.title}</p>`;
+if (addedItem) {
+  addedItem.map((item) => {
+    cartProductDom.innerHTML += `<p>${item.title}</p>`;
+  });
   cartProductcnt.style.display = "block";
-  // cartProductcnt.innerHTML = +cartProductcnt.innerHTML + 1;
   let cartProductlength = document.querySelectorAll(".carts-products div p");
   cartProductcnt.innerHTML = cartProductlength.length;
 }
 
-let cartProductmenue = document.querySelector(".carts-products");
+function addToCart(id) {
+  if (localStorage.getItem("username")) {
+    let chosenItem = products.find((item) => id === item.id);
+    cartProductDom.innerHTML += `<p>${chosenItem.title}</p>`;
+    cartProductcnt.style.display = "block";
+    // cartProductcnt.innerHTML = +cartProductcnt.innerHTML + 1;
+    let cartProductlength = document.querySelectorAll(".carts-products div p");
+    cartProductcnt.innerHTML = cartProductlength.length;
+    addedItem = [...addedItem, chosenItem];
+    localStorage.setItem("productsincarts", JSON.stringify(addedItem));
+  } else {
+    window.location = "login.html";
+  }
+}
 
 function opencartMenu() {
   if (cartProductDom.innerHTML != "") {

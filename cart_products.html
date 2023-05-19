@@ -14,7 +14,7 @@
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"
     />
-    <title>Shopping Cart | Home Page</title>
+    <title>Shopping Cart | My Cart</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/login.css" />
   </head>
@@ -22,7 +22,7 @@
     <header>
       <div class="container">
         <div class="header-content">
-          <a href="index.html" class="brand"> Shopping Cart</a>
+          <a href="index.html" class="brand"> My Cart</a>
           <nav>
             <ul id="links">
               <li><a href="login.html"> Sign In</a></li>
@@ -30,13 +30,29 @@
             </ul>
             <ul id="user_info">
               <li><a href="#" id="user"></a></li>
+              <li>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge"> </span>
+                <div class="carts-products">
+                  <div></div>
+                  <a href="cart_products.html">View All Products</a>
+                </div>
+              </li>
               <li><a href="#" id="logout">Logout</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <section></section>
-    <script src="js/script.js"></script>
+    <section>
+      <div class="home">
+        <div class="container">
+          <div class="products"></div>
+        </div>
+      </div>
+    </section>
+    <script src="js/user.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/carts.js"></script>
   </body>
 </html>
