@@ -1,12 +1,8 @@
-let productsInCarts = localStorage.getItem("productsincarts");
 let productDom = document.querySelector(".products");
 
-if (productsInCarts) {
-  let item = JSON.parse(productsInCarts);
-  drawProductsUI(item);
-}
-
-function drawProductsUI(products) {
+function drawCartProductsUI(allProducts = []) {
+  let productsInCarts = localStorage.getItem("productsincarts");
+  let products = JSON.parse(productsInCarts) || allProducts;
   let ProductsUI = products.map((item) => {
     return `
             <div class="product-item">
@@ -31,11 +27,14 @@ function drawProductsUI(products) {
   productDom.innerHTML = ProductsUI;
 }
 
+drawCartProductsUI();
+
 function removeFromCart(id) {
+  let productsInCarts = localStorage.getItem("productsincarts");
   if (productsInCarts) {
     let items = JSON.parse(productsInCarts);
     let filteredItems = items.filter((item) => item.id !== id);
-    drawProductsUI(filteredItems);
     localStorage.setItem("productsincarts", JSON.stringify(filteredItems));
+    drawCartProductsUI(filteredItems);
   }
 }

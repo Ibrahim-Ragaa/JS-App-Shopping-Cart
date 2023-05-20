@@ -43,9 +43,11 @@ if (addedItem) {
   addedItem.map((item) => {
     cartProductDom.innerHTML += `<p>${item.title}</p>`;
   });
-  cartProductcnt.style.display = "block";
   let cartProductlength = document.querySelectorAll(".carts-products div p");
   cartProductcnt.innerHTML = cartProductlength.length;
+  if (cartProductlength.length) {
+    cartProductcnt.style.display = "block";
+  }
 }
 
 function addToCart(id) {
