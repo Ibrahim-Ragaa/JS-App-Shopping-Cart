@@ -18,7 +18,7 @@ function drawProductsUI() {
                 alt=""
               />
               <div class="product-item-desc">
-                <h2>${item.title}</h2>
+                <h2><a onclick="productId(${item.id})">${item.title}</a></h2>
                 <p>the product is glasses</p>
                 <span> Size: ${item.size} </span>
               </div>
@@ -73,4 +73,9 @@ function opencartMenu() {
       cartProductmenue.style.display = "block";
     }
   }
+}
+
+function productId(id) {
+  localStorage.setItem("productId", id);
+  window.location = "cart-details.html";
 }

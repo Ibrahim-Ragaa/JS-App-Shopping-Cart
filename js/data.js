@@ -24,3 +24,5 @@ let products = [
     imageurl: "images/watch.jpg",
   },
 ];
+
+let productsDB = localStorage.setItem("productsDB", JSON.stringify(products));
