@@ -5,7 +5,8 @@ let itemDom = document.querySelector(".item-details");
 
 itemDom.innerHTML = `
                     <img src="${productDteails.imageurl}" alt="" />
-                    <h2>${productDteails.title}</h2>
+                    <h2>${productDteails.title} ${productDteails.qnt}</h2>
+                    <span>Quantity : ${productDteails.qnt}</span><br>
                     <span>Size : ${productDteails.size}</span>
                     `;
 

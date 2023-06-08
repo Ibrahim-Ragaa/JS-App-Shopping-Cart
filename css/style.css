@@ -41,11 +41,15 @@ nav ul#user_info {
   display: none;
 }
 
+nav ul#user_info li {
+  position: relative;
+  margin: 5px 10px;
+}
+
 nav ul#user_info li i {
   color: #e57c23;
   cursor: pointer;
   font-size: 30px;
-  margin: 10px 15px;
 }
 
 nav ul#user_info li .badge {
@@ -57,9 +61,10 @@ nav ul#user_info li .badge {
   display: none;
   border-radius: 50%;
   text-align: center;
-  top: 10px;
-  right: 285px;
+  top: -12px;
+  right: -8px;
   font-size: 15px;
+  line-height: 20px;
 }
 
 nav ul#user_info li .carts-products {
@@ -137,6 +142,8 @@ nav li a {
 .product-item {
   display: flex;
   width: 100%;
+  margin: 40px 0;
+  border: 1px solid #ffe194;
 }
 
 .product-item-img {
@@ -181,4 +188,15 @@ nav li a {
   object-fit: cover;
   margin: 20px 0;
   border: 1px solid #333;
+}
+
+.search-bar {
+  border: 1px solid #333;
+  height: 40px;
+  width: 395px;
+  margin: 30px auto -30px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #f266ab;
+  padding: 8px;
 }

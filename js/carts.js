@@ -15,6 +15,7 @@ function drawCartProductsUI(allProducts = []) {
                 <div class="product-item-desc">
                   <h2>${item.title}</h2>
                   <p>the product is glasses</p>
+                  <span>Quantity : ${item.qnt}</span><br>
                   <span> Size: ${item.size} </span>
                 </div>
                 <div class="product-item-actions">
